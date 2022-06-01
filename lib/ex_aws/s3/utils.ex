@@ -28,7 +28,7 @@ defmodule ExAws.S3.Utils do
       |> format_and_take(@amz_headers)
       |> namespace("x-amz")
 
-    acl_headers = format_acl_headers(opts)
+    _acl_headers = format_acl_headers(opts)
 
     encryption_headers =
       opts
@@ -42,7 +42,7 @@ defmodule ExAws.S3.Utils do
 
     regular_headers
     |> Map.merge(amz_headers)
-    |> Map.merge(acl_headers)
+    # |> Map.merge(acl_headers)
     |> Map.merge(encryption_headers)
     |> Map.merge(meta)
   end
